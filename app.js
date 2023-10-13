@@ -18,7 +18,7 @@ function greeting() {
 function orderCookies() {
   let cookiesOrdered = prompt('How many ' + favoriteCookie.toLowerCase() + ' cookies would you like to order?');
 
-  if(isNaN(cookiesOrdered)) {
+  while(isNaN(cookiesOrdered)) {
     cookiesOrdered = prompt(cookiesOrdered + ' isn\'t a number of cookies we can make. How many cookies would you like to order?');
   }
 
@@ -36,6 +36,18 @@ function setSiteBackgroundColor() {
   let backgroundColor = prompt('To personalize your experience on our site, please input a color.');
 
   document.body.style.backgroundColor = backgroundColor;
+}
+
+function starRating() {
+  let stars = prompt('We want to make our site experience the best possible. On a scale of 1-5, how many stars would you rate our greeting?');
+
+  while(isNaN(stars) || stars > 5 || stars < 1) {
+    stars = prompt('Sorry, that\'s not valid input. Please rate our site 1-5 stars.');
+  }
+
+  for(let i = 0; i < stars; i++) {
+    document.write('<img class=\'star\' src=\'star.png\'/>');
+  }
 }
 
 greeting();
